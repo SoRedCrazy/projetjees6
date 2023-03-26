@@ -12,9 +12,6 @@ public class Program {
     private Long id;
     private String titre;
     private String description;
-    @Transient
-    private float moyenne;
-
     @OneToMany
     private List<Activity> activities ;
 
@@ -56,17 +53,6 @@ public class Program {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public float getMoyenne(CommentRepository commentRepository) {
-        float moyenne = 0;
-        if(activities != null && !activities.isEmpty()) {
-            for(Activity ac: activities){
-                moyenne+=ac.getMoyenne(commentRepository);
-            }
-            this.moyenne= moyenne/activities.size();
-        }
-        return this.moyenne;
     }
 
 

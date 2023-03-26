@@ -17,9 +17,6 @@ public class Activity {
     private String titre;
     private String description;
 
-    @Transient
-    private float moyenne;
-
 
 
     public Activity(Long id, String titre, String description) {
@@ -60,20 +57,4 @@ public class Activity {
         this.description = description;
     }
 
-    public float getMoyenne(CommentRepository commentRepository) {
-
-        List<Comment> cm = commentRepository.findCommentByActivity(this);
-        float moyenne = 0;
-        if(cm != null && !cm.isEmpty()) {
-            for(Comment comment: cm){
-                moyenne+=comment.getNote();
-            }
-            this.moyenne= moyenne/cm.size();
-        }
-        return this.moyenne;
-    }
-
-    public void setMoyenne(float moyenne) {
-        this.moyenne = moyenne;
-    }
 }

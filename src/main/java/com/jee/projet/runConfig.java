@@ -8,6 +8,7 @@ import com.jee.projet.ENTITY.Activity;
 import com.jee.projet.ENTITY.Comment;
 import com.jee.projet.ENTITY.Program;
 import com.jee.projet.ENTITY.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.CommandLineRunner;
@@ -29,6 +30,8 @@ public class runConfig implements CommandLineRunner  {
     private ProgramRepository programRepository;
     @Autowired
     private CommentRepository commentRepository;
+
+
     @Override
     public void run(String... args) {
 
@@ -41,7 +44,9 @@ public class runConfig implements CommandLineRunner  {
 
 
         Program program = new Program("progamme de sprinte","progame contenant plusieur exercie de sprint", listActivity);
+        Program program2 = new Program("progamme de sprinte 2","progame contenant plusieur exercie de sprint", new ArrayList<Activity>());
         programRepository.save(program);
+        programRepository.save(program2);
         ArrayList<Program> listProgram = new ArrayList<Program>();
 
         listProgram.add(program);
@@ -56,8 +61,7 @@ public class runConfig implements CommandLineRunner  {
         commentRepository.saveAll(
                 List.of(cm1,cm2,cm3,cm4)
         );
-        System.out.println("Moyenne de l'activité 2 :"+ listActivity.get(2).getMoyenne(commentRepository));
-        System.out.println("Programme moyenne : "+program.getMoyenne(commentRepository));
+
     }
 
 }

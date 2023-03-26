@@ -11,13 +11,11 @@ import java.util.List;
 @Service
 public class ProgramService {
 
-    @Autowired
     private ProgramRepository programRepository;
     private ActivityService activityService;
 
     @Autowired
     public ProgramService(ActivityService activityService,ProgramRepository programRepository) {
-
         this.activityService = activityService;
         this.programRepository= programRepository;
     }

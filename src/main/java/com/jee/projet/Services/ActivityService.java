@@ -13,13 +13,12 @@ import java.util.List;
 @Service
 public class ActivityService {
 
-    @Autowired
     private ActivityRepository activityRepository;
     private CommentRepository commentRepository;
 
     @Autowired
-    public ActivityService(CommentRepository commentRepository) {
-
+    public ActivityService(CommentRepository commentRepository,ActivityRepository activityRepository) {
+        this.activityRepository =activityRepository;
         this.commentRepository = commentRepository;
     }
 

@@ -1,5 +1,7 @@
 package com.jee.projet.ENTITY;
 
+import com.jee.projet.DAO.CommentRepository;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -10,24 +12,22 @@ public class Program {
     private Long id;
     private String titre;
     private String description;
-
+    @Transient
     private float moyenne;
 
     @OneToMany
     private List<Activity> activities ;
 
-    public Program(Long id, String titre, String description, float moyenne, List<Activity> activities) {
+    public Program(Long id, String titre, String description, List<Activity> activities) {
         this.id = id;
         this.titre = titre;
         this.description = description;
-        this.moyenne = moyenne;
         this.activities = activities;
     }
 
-    public Program(String titre, String description, float moyenne, List<Activity> activities) {
+    public Program(String titre, String description, List<Activity> activities) {
         this.titre = titre;
         this.description = description;
-        this.moyenne = moyenne;
         this.activities = activities;
     }
 
@@ -58,13 +58,17 @@ public class Program {
         this.description = description;
     }
 
-    public float getMoyenne() {
-        return moyenne;
+    public float getMoyenne(CommentRepository commentRepository) {
+        float moyenne = 0;
+        if(activities != null && !activities.isEmpty()) {
+            for(Activity ac: activities){
+                moyenne+=ac.getMoyenne(commentRepository);
+            }
+            this.moyenne= moyenne/activities.size();
+        }
+        return this.moyenne;
     }
 
-    public void setMoyenne(float moyenne) {
-        this.moyenne = moyenne;
-    }
 
     public List<Activity> getActivities() {
         return activities;

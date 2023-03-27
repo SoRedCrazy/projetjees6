@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+</head>
+<body>
+ <div class="ui grid">
+     <div class="ui column centered grid">
+         <h2 class="ui header">
+             <div class="content center">
+                 Sign-Up
+             </div>
+         </h2>
+         <form class="ui form">
+             <div class="ui stacked segment">
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="user icon"></i>
+                         <input type="text" name="nom" placeholder="name">
+                     </div>
+                 </div>
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="user icon"></i>
+                         <input type="text" name="prenom" placeholder="Firstname">
+                     </div>
+                 </div>
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="user secret icon"></i>
+                         <input type="text" name="pseudo" placeholder="pseudo">
+                     </div>
+                 </div>
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="phone alternate icon"></i>
+                         <input type="tel" name="tel" placeholder="tel">
+                     </div>
+                 </div>
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="house user icon"></i>
+                         <input type="text" name="adresse" placeholder="adresse">
+                     </div>
+                 </div>
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="user icon"></i>
+                         <input type="text" name="email" placeholder="E-mail address">
+                     </div>
+                 </div>
+                 <div class="field">
+                     <div class="ui left icon input">
+                         <i class="lock icon"></i>
+                         <input type="password" name="password" placeholder="Password">
+                     </div>
+                 </div>
+                 <div class="ui submit button">Sign Up</div>
+             </div>
+         </form>
+     </div>
+ </div>
+</body>
+</html>

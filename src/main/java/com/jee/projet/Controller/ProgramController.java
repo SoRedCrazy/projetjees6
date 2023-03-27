@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class ProgramController {
 
@@ -23,9 +21,14 @@ public class ProgramController {
         return progamService.getMoyennne(p);
     }
 
-    @GetMapping(path = "/Connection")
+    @GetMapping(path = "/Connexion")
     public String Connection(){
-        return "Connection";
+        return "Connexion";
+    }
+
+    @GetMapping(path = "/Inscription")
+    public String Inscription(){
+        return "Inscription";
     }
 
 }

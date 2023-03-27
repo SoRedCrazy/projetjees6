@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping(path = "/")
+@Controller
 public class ProgramController {
 
     private final ProgramService progamService;
@@ -18,10 +17,15 @@ public class ProgramController {
         this.progamService = progamService;
     }
 
-    @GetMapping(path = "{programId}")
+    @GetMapping(path = "/{programId}")
     public float getStudents(@PathVariable("programId") long id){
         Program p= progamService.getById(id);
         return progamService.getMoyennne(p);
+    }
+
+    @GetMapping(path = "/Connection")
+    public String Connection(){
+        return "Connection";
     }
 
 }

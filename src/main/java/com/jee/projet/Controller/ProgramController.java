@@ -21,14 +21,4 @@ public class ProgramController {
         return progamService.getMoyennne(p);
     }
 
-    @GetMapping(path = "/Connexion")
-    public String Connection(){
-        return "Connexion";
-    }
-
-    @GetMapping(path = "/Inscription")
-    public String Inscription(){
-        return "Inscription";
-    }
-
 }

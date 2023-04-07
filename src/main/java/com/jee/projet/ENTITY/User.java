@@ -12,6 +12,7 @@ public class User {
     private Long id;
     private String pseudo;
     private String motDePasse;
+
     private String nom;
     private String prenom;
     private String adresse;

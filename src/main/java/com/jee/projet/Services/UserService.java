@@ -1,6 +1,7 @@
 package com.jee.projet.Services;
 
 import com.jee.projet.DAO.UserRepository;
+import com.jee.projet.ENTITY.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,10 @@ public class UserService {
     @Autowired
     public UserService(UserRepository userRepository){
         this.userRepository=userRepository;
+    }
+
+    public User getUserById(long id) {
+        return this.userRepository.getById(id);
     }
 
 }

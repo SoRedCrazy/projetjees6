@@ -33,4 +33,8 @@ public class ActivityService {
         }
         return moyenne;
     }
+
+    public Activity getById(long id) {
+        return activityRepository.getById(id);
+    }
 }

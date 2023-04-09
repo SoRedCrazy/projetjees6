@@ -2,6 +2,7 @@ package com.jee.projet.Controller;
 
 import com.jee.projet.ENTITY.Program;
 import com.jee.projet.ENTITY.User;
+import com.jee.projet.Services.ActivityService;
 import com.jee.projet.Services.ProgramService;
 import com.jee.projet.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +17,21 @@ public class ProgramController {
 
     private final ProgramService progamService;
     private final UserService userService;
+    private final ActivityService activityService;
     @Autowired
-    public ProgramController(ProgramService progamService, UserService userService) {
+    public ProgramController(ProgramService progamService, UserService userService, ActivityService activityService) {
         this.progamService = progamService;
         this.userService = userService;
+        this.activityService= activityService;
     }
 
-    @GetMapping(path = "/{programId}")
-    public float getStudents(@PathVariable("programId") long id){
+    @GetMapping(path = "/programme/{programId}")
+    public String programme(@PathVariable("programId") long id,Model model){
         Program p= progamService.getById(id);
-        return progamService.getMoyennne(p);
+        model.addAttribute("programme",p);
+        float i=progamService.getMoyennne(p);
+        model.addAttribute("moyenne",i);
+        return "programme";
     }
     @GetMapping(path = "/home")
     public String Home(Model model) {
@@ -34,5 +40,8 @@ public class ProgramController {
         model.addAttribute("User", user);
         return "home";
     }
+
+
+
 
 }

@@ -3,6 +3,7 @@ package com.jee.projet.Services;
 import com.jee.projet.DAO.ProgramRepository;
 import com.jee.projet.ENTITY.Activity;
 import com.jee.projet.ENTITY.Program;
+import com.jee.projet.ENTITY.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +21,12 @@ public class ProgramService {
         this.programRepository= programRepository;
     }
 
-    public float getMoyennne(Program pr){
+    public float getMoyennne(Program pr, User user){
         List<Activity> activities = pr.getActivities();
         float moyenne = 0;
         if(activities != null && !activities.isEmpty()) {
             for(Activity ac: activities){
-                moyenne+=activityService.getMoyennne(ac);
+                moyenne+=activityService.getMoyennne(ac,user);
             }
             moyenne= moyenne/activities.size();
         }

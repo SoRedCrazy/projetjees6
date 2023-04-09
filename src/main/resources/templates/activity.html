@@ -30,23 +30,22 @@
       <div class="ui stacked segment">
         <h3 class="ui header">
           <div class="content">
-            Les activité du programme
+            Commentaires
           </div>
         </h3>
        <div class="ui three column grid">
-         <!--  <div class="ui column" th:each="a : ${programme.activities}">
+          <div class="ui column" th:each="c : ${comments}">
             <div class="ui card">
               <div class="content">
-                <div class="header" th:text="${a.titre}"></div>
-                <div class="description" th:text="${a.description}">Programme contenant des activités de sprint, de cardio etc</div>
-              </div>
-              <div class="ui violet button">
-                <i class="external alternate icon"></i>
-                Ouvrir
+                <div class="header" th:text="${c.titre}"></div>
+                <div class="description" th:text="${c.description}">Programme contenant des activités de sprint, de cardio etc</div>
+                <div class="content center aligned">
+                  note : <span th:text="${c.note}"/>
+                </div>
               </div>
             </div>
           </div>
-        </div>-->
+        </div>
       </div>
     </div>
   </div>

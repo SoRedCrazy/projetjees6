@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -31,14 +32,28 @@ public class ActivityController {
     }
 
     @GetMapping(path = "/activity/{activityId}")
-    public String activity(@PathVariable("activityId") long id, Model model){
+    public String comments(@PathVariable("activityId") long id, Model model){
         User user = userService.getUserById(1);
         Activity a= activityService.getById(id);
         model.addAttribute("Activity",a);
 
         List<Comment> commentList = commentService.getComments(a,user);
         model.addAttribute("comments", commentList);
-        float i=activityService.getMoyennne(a,user);
+        Double i=activityService.getMoyennne(a,user);
+        model.addAttribute("moyenne",i);
+        return "activity";
+    }
+
+    @PostMapping (path = "/activity/{activityId}")
+    public String adcomments(@PathVariable("activityId") long id, Model model,String titre, String description,String note){
+        User user = userService.getUserById(1);
+        Activity a= activityService.getById(id);
+
+        commentService.addservice(titre,description,note,user,a);
+        model.addAttribute("Activity",a);
+        List<Comment> commentList = commentService.getComments(a,user);
+        model.addAttribute("comments", commentList);
+        Double i=activityService.getMoyennne(a,user);
         model.addAttribute("moyenne",i);
         return "activity";
     }

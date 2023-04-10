@@ -20,4 +20,9 @@ public class CommentService {
     }
 
     public List<Comment> getComments(Activity activity, User user){return commentRepository.findCommentByActivityAndUser(activity,user); }
+
+    public void addservice(String titre, String description, String note, User user, Activity a) {
+
+        commentRepository.save(new Comment(titre,description,Integer.parseInt(note),user,a));
+    }
 }

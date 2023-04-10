@@ -48,7 +48,58 @@
         </div>
       </div>
     </div>
+    <form class="ui form" th:action="@{/activity/{id}(id=${Activity.id})}" method="post">
+        <label>Ajouté un commentaire:</label>
+          <div class="field">
+            <label>Titre </label>
+            <input type="text" name="titre">
+          </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea rows="2" name="description"></textarea>
+        </div>
+      <div class="inline fields">
+        <div class="field">
+          <div class="ui radio checkbox checked">
+            <input type="radio" name="note" checked="" tabindex="0" class="hidden" value="5">
+            <label>1</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="note" tabindex="0" class="hidden" value="2">
+            <label>2</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="note" tabindex="0" class="hidden" value="3">
+            <label>3</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="note" tabindex="0" class="hidden" value="4">
+            <label>4</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="note" tabindex="0" class="hidden" value="5">
+            <label>5</label>
+          </div>
+        </div>
+        <input type="submit" class="ui button" tabindex="0" value="commenter"/>
+      </div>
+  </form>
+
   </div>
 </div>
+
 </body>
 </html>
+<script>
+  $('.ui.radio.checkbox')
+          .checkbox()
+  ;
+</script>

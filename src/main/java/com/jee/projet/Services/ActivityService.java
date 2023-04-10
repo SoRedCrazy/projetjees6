@@ -23,7 +23,7 @@ public class ActivityService {
         this.commentRepository = commentRepository;
     }
 
-    public float getMoyennne(Activity activity, User user){
+    public Double getMoyennne(Activity activity, User user){
         List<Comment> cm = commentRepository.findCommentByActivityAndUser(activity,user);
         float moyenne = 0;
         if(cm != null && !cm.isEmpty()) {
@@ -32,7 +32,7 @@ public class ActivityService {
             }
             moyenne= moyenne/cm.size();
         }
-        return moyenne;
+        return Math.round(moyenne * Math.pow(10,1)) / Math.pow(10,1);
     }
 
     public Activity getById(long id) {

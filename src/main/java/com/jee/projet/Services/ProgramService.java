@@ -21,7 +21,7 @@ public class ProgramService {
         this.programRepository= programRepository;
     }
 
-    public float getMoyennne(Program pr, User user){
+    public double getMoyennne(Program pr, User user){
         List<Activity> activities = pr.getActivities();
         float moyenne = 0;
         if(activities != null && !activities.isEmpty()) {
@@ -30,7 +30,7 @@ public class ProgramService {
             }
             moyenne= moyenne/activities.size();
         }
-        return moyenne;
+        return Math.round(moyenne * Math.pow(10,1)) / Math.pow(10,1);
     }
 
     public Program getById(long id) {

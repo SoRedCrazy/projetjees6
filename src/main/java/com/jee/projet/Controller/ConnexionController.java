@@ -45,7 +45,7 @@ public class ConnexionController {
     @PostMapping("/inscription")
     public String registerUserAccount(String nom, String prenom, String pseudo, String email, String adresse, String password, String tel){
         userService.addUser(nom,prenom,pseudo,email,adresse,password,tel);
-        return "inscription_success";
+        return "connexion";
     }
 
     @GetMapping("/deconnexion")

@@ -47,7 +47,6 @@
           </div>
         </div>
       </div>
-    </div>
     <form class="ui form" th:action="@{/activity/{id}(id=${Activity.id})}" method="post">
         <label>Ajouté un commentaire:</label>
           <div class="field">
@@ -90,12 +89,15 @@
           </div>
         </div>
         <input type="submit" class="ui button" tabindex="0" value="commenter"/>
+        <a class="ui blue button" th:href="@{/home}">
+          <i class="external alternate icon"></i>
+          retour au home
+        </a>
       </div>
   </form>
-
   </div>
 </div>
-
+</div>
 </body>
 </html>
 <script>

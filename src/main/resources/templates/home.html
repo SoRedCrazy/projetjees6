@@ -34,10 +34,10 @@
                                     <div class="description" th:text="${p.description}">Programme contenant des activités de sprint, de cardio etc</div>
 
                                 </div>
-                                <div class="ui violet button">
+                                <a class="ui violet button" th:href="@{/programme/{id}(id=${p.id})}">
                                     <i class="external alternate icon"></i>
                                     Ouvrir
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>

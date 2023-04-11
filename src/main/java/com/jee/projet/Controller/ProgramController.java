@@ -28,7 +28,7 @@ public class ProgramController {
 
     @GetMapping(path = "/programme/{programId}")
     public String programme(@PathVariable("programId") long id,Model model){
-        User user = userService.getUserById(21);
+        User user = userService.getUserById(1);
         Program p= progamService.getById(id);
         model.addAttribute("programme",p);
         double i=progamService.getMoyennne(p,user);
@@ -56,7 +56,13 @@ public class ProgramController {
     public  String backform(Model model, @ModelAttribute("Program") Program program){
         System.out.println(program.getActivities().toString());
         progamService.save(program);
+        User user = userService.getUserById(1);
+        List<Program> programList = user.getPrograms();
+        programList.add(program);
+        user.setPrograms(programList);
         return this.Home(model);
+
+
     }
 
     @ModelAttribute(value = "program")

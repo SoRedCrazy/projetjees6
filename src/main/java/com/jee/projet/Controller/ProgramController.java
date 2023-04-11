@@ -28,9 +28,11 @@ public class ProgramController {
     }
 
     @GetMapping(path = "/programme/{programId}")
-    public String programme(@PathVariable("programId") long id,Model model){
-        User user = userService.getUserById(1);
-        Program p= progamService.getById(id);
+    public String programme(@PathVariable("programId") long idprog,Model model, HttpServletRequest request){
+        String s= request.getSession().getAttribute("id").toString();
+        int id =Integer.parseInt(s);
+        User user = userService.getUserById(id);
+        Program p= progamService.getById(idprog);
         model.addAttribute("programme",p);
         double i=progamService.getMoyennne(p,user);
         model.addAttribute("moyenne",i);

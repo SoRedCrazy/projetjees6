@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class ConnexionController {
 
@@ -24,9 +26,10 @@ public class ConnexionController {
     @PostMapping(path = "/connexion")
     public String Connection(Model model,String email,String password){
         User u = userService.getUserByMail(email);
-
+        HttpSession session = null;
         if(u.getMotDePasse().equals(password)){
             model.addAttribute("User", u);
+            session.setAttribute("id",u.getId());
             return "home";
         }else {
             return  "connexion";

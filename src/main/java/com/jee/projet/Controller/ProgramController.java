@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -36,8 +37,9 @@ public class ProgramController {
         return "programme";
     }
     @GetMapping(path = "/home")
-    public String Home(Model model) {
+    public String Home(Model model, HttpServletRequest request) {
         User user = userService.getUserById(1);
+        String id = (String) request.getSession().getAttribute("id");
         List<Program> programs = user.getPrograms();
         model.addAttribute("User", user);
         return "home";

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -44,6 +45,12 @@ public class ConnexionController {
     @PostMapping("/inscription")
     public String registerUserAccount(String nom, String prenom, String pseudo, String email, String adresse, String password, String tel){
         userService.addUser(nom,prenom,pseudo,email,adresse,password,tel);
+        return "connexion";
+    }
+
+    @PostMapping("/Deconnexion")
+    public String Deconnexion(HttpServletRequest request){
+        request.getSession().invalidate();
         return "connexion";
     }
 }

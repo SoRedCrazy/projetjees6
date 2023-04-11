@@ -21,6 +21,18 @@ public class ConnexionController {
         return "connexion";
     }
 
+    @PostMapping(path = "/connexion")
+    public String Connection(Model model,String email,String password){
+        User u = userService.getUserByMail(email);
+
+        if(u.getMotDePasse().equals(password)){
+            model.addAttribute("User", u);
+            return "home";
+        }else {
+            return  "connexion";
+        }
+    }
+
     @GetMapping("/inscription")
     public String register(Model model){
         return "inscription";

@@ -26,4 +26,8 @@ public class UserService {
         return this.userRepository.getById(id);
     }
 
+    public User getUserByMail(String email) {
+        return  userRepository.findUserByMail(email);
+    }
+
 }

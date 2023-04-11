@@ -36,7 +36,7 @@
           </div>
           <div class="field">
             <label>Activités</label>
-            <select multiple="" class="ui fluid search dropdown" name="choice" th:field="*{activities}">
+            <select multiple="" class="ui fluid search dropdown" th:field="*{activities}">
               <option th:each="a : ${activitiess}"
                       th:value="${a.id}"
                       th:text="${a.titre}+' : '+${a.description}"></option>
@@ -51,3 +51,7 @@
 </div>
 </body>
 </html>
+
+<script>
+  $('.dropdown').dropdown();
+</script>

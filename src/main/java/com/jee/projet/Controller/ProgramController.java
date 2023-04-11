@@ -38,8 +38,9 @@ public class ProgramController {
     }
     @GetMapping(path = "/home")
     public String Home(Model model, HttpServletRequest request) {
-        User user = userService.getUserById(1);
-        String id = (String) request.getSession().getAttribute("id");
+        String s= request.getSession().getAttribute("id").toString();
+        int id =Integer.parseInt(s);
+        User user = userService.getUserById(id);
         List<Program> programs = user.getPrograms();
         model.addAttribute("User", user);
         return "home";
@@ -55,15 +56,19 @@ public class ProgramController {
     }
 
     @PostMapping (path = "/add")
-    public  String backform(Model model, @ModelAttribute("Program") Program program){
-        System.out.println(program.getActivities().toString());
+    public  String backform(Model model, @ModelAttribute("Program") Program program, HttpServletRequest request){
         progamService.save(program);
-        User user = userService.getUserById(1);
+
+        String s= request.getSession().getAttribute("id").toString();
+        int id =Integer.parseInt(s);
+        User user = userService.getUserById(id);
+
         List<Program> programList = user.getPrograms();
         programList.add(program);
         user.setPrograms(programList);
         userService.save(user);
-        return this.Home(model);
+        model.addAttribute("User", user);
+        return "home";
 
 
     }

@@ -24,9 +24,9 @@ public class ConnexionController {
     }
 
     @PostMapping(path = "/connexion")
-    public String Connection(Model model,String email,String password){
+    public String Connection(Model model,String email,String password, HttpSession s){
         User u = userService.getUserByMail(email);
-        HttpSession session = null;
+        HttpSession session = s;
         if(u.getMotDePasse().equals(password)){
             model.addAttribute("User", u);
             session.setAttribute("id",u.getId());

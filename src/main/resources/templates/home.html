@@ -24,6 +24,10 @@
                         <div class="content">
                             Vos programmes
                         </div>
+                        <a class="ui blue button" th:href="@{/add}">
+                            <i class="external alternate icon"></i>
+                            Add programme
+                        </a>
                     </h3>
                     <div class="ui three column grid">
                         <div class="ui column" th:each="p : ${User.programs}">

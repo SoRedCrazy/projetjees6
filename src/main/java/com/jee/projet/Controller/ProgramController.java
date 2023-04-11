@@ -1,5 +1,6 @@
 package com.jee.projet.Controller;
 
+import com.jee.projet.ENTITY.Activity;
 import com.jee.projet.ENTITY.Program;
 import com.jee.projet.ENTITY.User;
 import com.jee.projet.Services.ActivityService;
@@ -40,6 +41,29 @@ public class ProgramController {
         List<Program> programs = user.getPrograms();
         model.addAttribute("User", user);
         return "home";
+    }
+
+
+    @GetMapping(path = "/add")
+    public  String addform(Model model){
+        List<Activity> activityList = activityService.findall();
+        model.addAttribute("activitiess", activityList);
+        model.addAttribute("program", new Program());
+        return "addprogramme";
+    }
+
+    @PostMapping (path = "/add")
+    public  String backform(Model model, @ModelAttribute("Program") Program program){
+        System.out.println(program.toString());
+        List<Activity> activityList = activityService.findall();
+        model.addAttribute("activities", activityList);
+        return "home";
+    }
+
+    @ModelAttribute(value = "program")
+    public Program newEntity()
+    {
+        return new Program();
     }
 
 

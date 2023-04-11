@@ -38,4 +38,8 @@ public class ActivityService {
     public Activity getById(long id) {
         return activityRepository.getById(id);
     }
+
+    public List<Activity> findall() {
+        return activityRepository.findAll();
+    }
 }

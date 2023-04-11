@@ -60,6 +60,7 @@ public class ProgramController {
         List<Program> programList = user.getPrograms();
         programList.add(program);
         user.setPrograms(programList);
+        userService.save(user);
         return this.Home(model);
 
 

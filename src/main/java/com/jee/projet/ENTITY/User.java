@@ -16,6 +16,7 @@ public class User {
     private String nom;
     private String prenom;
     private String adresse;
+
     private String mail;
     private String tel;
 
@@ -24,6 +25,16 @@ public class User {
 
 
     public User() {
+    }
+
+    public User(String pseudo, String motDePasse, String nom, String prenom, String adresse, String mail, String tel) {
+        this.pseudo = pseudo;
+        this.motDePasse = motDePasse;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.mail = mail;
+        this.tel = tel;
     }
 
     public User(String pseudo, String motDePasse, String nom, String prenom, String adresse, String mail, String tel , ArrayList <Program> programs) {

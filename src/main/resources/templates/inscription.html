@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
@@ -19,42 +19,42 @@ background: radial-gradient(circle, rgba(238,174,202,0.8631827731092436) 0%, rgb
                  Inscription
              </div>
          </h2>
-         <form class="ui form" action="@{/process_register}" method="post">
+         <form class="ui form" action="/inscription" method="post">
              <div class="ui basic segment">
                  <div class="field">
                      <div class="ui left icon input">
                          <i class="user icon"></i>
-                         <input type="text" name="nom" placeholder="nom">
+                         <input type="text" class="form-control" name="nom" placeholder="nom" >
                      </div>
                  </div>
                  <div class="field">
                      <div class="ui left icon input">
                          <i class="user icon"></i>
-                         <input type="text" name="prenom" placeholder="prenom">
+                         <input type="text" name="prenom" placeholder="prenom" >
                      </div>
                  </div>
                  <div class="field">
                      <div class="ui left icon input">
                          <i class="user secret icon"></i>
-                         <input type="text" name="pseudo" placeholder="pseudo">
+                         <input type="text" name="pseudo" placeholder="pseudo" >
                      </div>
                  </div>
                  <div class="field">
                      <div class="ui left icon input">
                          <i class="phone alternate icon"></i>
-                         <input type="tel" name="tel" placeholder="tel">
+                         <input type="tel" name="tel" placeholder="tel" >
                      </div>
                  </div>
                  <div class="field">
                      <div class="ui left icon input">
                          <i class="house user icon"></i>
-                         <input type="text" name="adresse" placeholder="adresse">
+                         <input type="text" name="adresse" placeholder="adresse" >
                      </div>
                  </div>
                  <div class="field">
                      <div class="ui left icon input">
                          <i class="user icon"></i>
-                         <input type="text" name="email" placeholder="Adresse mail">
+                         <input type="text" name="email" placeholder="Adresse mail" >
                      </div>
                  </div>
                  <div class="field">

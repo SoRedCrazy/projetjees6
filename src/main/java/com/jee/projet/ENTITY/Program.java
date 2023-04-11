@@ -12,7 +12,7 @@ public class Program {
     private Long id;
     private String titre;
     private String description;
-    @OneToMany
+    @ManyToMany
     private List<Activity> activities ;
 
     public Program(Long id, String titre, String description, List<Activity> activities) {

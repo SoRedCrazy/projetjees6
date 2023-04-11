@@ -38,5 +38,7 @@ public class ProgramService {
     }
 
 
-
+    public void save(Program program) {
+        programRepository.saveAndFlush(program);
+    }
 }

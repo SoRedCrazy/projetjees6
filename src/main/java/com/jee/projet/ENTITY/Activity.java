@@ -57,4 +57,12 @@ public class Activity {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

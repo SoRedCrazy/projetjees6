@@ -37,7 +37,7 @@ public class ProgramController {
     }
     @GetMapping(path = "/home")
     public String Home(Model model) {
-        User user = userService.getUserById(21);
+        User user = userService.getUserById(1);
         List<Program> programs = user.getPrograms();
         model.addAttribute("User", user);
         return "home";
@@ -54,10 +54,9 @@ public class ProgramController {
 
     @PostMapping (path = "/add")
     public  String backform(Model model, @ModelAttribute("Program") Program program){
-        System.out.println(program.toString());
-        List<Activity> activityList = activityService.findall();
-        model.addAttribute("activities", activityList);
-        return "home";
+        System.out.println(program.getActivities().toString());
+        progamService.save(program);
+        return this.Home(model);
     }
 
     @ModelAttribute(value = "program")

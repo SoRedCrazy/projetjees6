@@ -25,10 +25,10 @@
             formulaire
           </div>
         </h3>
-        <form method="post" th:object="${program}" th:action="/add" class="ui form">
+        <form method="post" th:object="${program}" th:action="@{/add}" action="#" class="ui form">
           <div class="field">
             <label>Titre </label>
-            <input th:field="*{titre}" type="text" name="titre">
+            <input th:field="*{titre}" type="text">
           </div>
           <div class="field">
             <label>Description</label>
@@ -37,17 +37,13 @@
           <div class="field">
             <label>Activités</label>
             <select multiple="" class="ui fluid search dropdown" name="choice" th:field="*{activities}">
-              <option value="">select activity</option>
-              <th:block th:each="a : ${activitiess}">
-                <option th:value="${a.id}">
-                  <span th:text="${a.titre}"/> : <span th:text="${a.description}"/>
-                </option>
-              </th:block>
+              <option th:each="a : ${activitiess}"
+                      th:value="${a.id}"
+                      th:text="${a.titre}+' : '+${a.description}"></option>
             </select>
           </div>
           <input type="submit" class="ui button" tabindex="0" value="crée"/>
         </form>
-
       </div>
       </div>
     </div>

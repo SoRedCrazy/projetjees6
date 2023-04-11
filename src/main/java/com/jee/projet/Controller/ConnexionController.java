@@ -20,12 +20,19 @@ public class ConnexionController {
     public String Connection(){
         return "connexion";
     }
-/*
-    @GetMapping(path = "/inscription")
-    public String Inscription(){
-        return "inscription";
+
+    @PostMapping(path = "/connexion")
+    public String Connection(Model model,String email,String password){
+        User u = userService.getUserByMail(email);
+
+        if(u.getMotDePasse().equals(password)){
+            model.addAttribute("User", u);
+            return "home";
+        }else {
+            return  "connexion";
+        }
     }
-*/
+
     @GetMapping("/inscription")
     public String register(Model model){
         return "inscription";

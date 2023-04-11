@@ -20,12 +20,7 @@ public class ConnexionController {
     public String Connection(){
         return "connexion";
     }
-/*
-    @GetMapping(path = "/inscription")
-    public String Inscription(){
-        return "inscription";
-    }
-*/
+
     @GetMapping("/inscription")
     public String register(Model model){
         return "inscription";

@@ -48,7 +48,7 @@ public class ConnexionController {
         return "connexion";
     }
 
-    @PostMapping("/Deconnexion")
+    @GetMapping("/deconnexion")
     public String Deconnexion(HttpServletRequest request){
         request.getSession().invalidate();
         return "connexion";
